@@ -29,7 +29,7 @@ jobs:
         with:
           node-version: "18" 
           cache: 'npm'
-      - name: Install dependencies 
+      - name: Install dependencies
         run: npm ci # Usa 'ci' para instalaciones limpias en CI/CD
       - name: Build # Construye el sitio estático
         run: npm run build # Ejecuta el script 'build' definido en package.json por Astro

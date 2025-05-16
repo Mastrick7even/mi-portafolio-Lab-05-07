@@ -1,16 +1,182 @@
 ---
+// En el futuro, aquí puedes importar componentes de Astro si lo deseas
+// import Navbar from '../components/Navbar.astro';
+// import Footer from '../components/Footer.astro';
 
+const pageTitle = "Mi Portafolio";
+const nombreCompleto = "Bastian Arriagada Quero";
+const tuRol = "Estudiante de Ingenieria Informatica";
+const sobreMiTexto = `Hola, soy ${nombreCompleto}. Soy un apasionado ${tuRol} con experiencia en nada. Me encanta aprender nuevas tecnologías y enfrentar desafíos que me permitan crecer profesionalmente.`;
+const emailContacto = "barriagadaquero@.com";
+const linkedinUser = "barriagadaq";
+const githubUser = "Mastrick7even";
+const rutaFoto = "/mi-portafolio-Lab-05-07/placeholder-foto.jpg"; // Asegúrate que la imagen exista en la carpeta public/
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Bastian Arriagada Quero</h1>
-	</body>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <style>
+        /* Estilos básicos para empezar - ¡Siéntete libre de expandirlos o usar un framework CSS! */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #0779e4 3px solid;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        header #branding {
+            float: left;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        .hero {
+            min-height: 400px;
+            background: #333 url('https://via.placeholder.com/1500x400?text=Imagen+Fondo+Hero') no-repeat 0 -400px; /* Cambia esta imagen de fondo */
+            background-position: center;
+            background-size: cover;
+            text-align: center;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .hero img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 20px;
+        }
+        section {
+            padding: 20px;
+            margin: 20px 0;
+            background: #fff;
+            border-radius: 5px;
+        }
+        #about-me h2, #projects h2, #contact h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #0779e4;
+        }
+        .project-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">{nombreCompleto}</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="/">Inicio</a></li>
+                    <li><a href="#about-me">Sobre Mí</a></li>
+                    <li><a href="#projects">Proyectos</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <img src={rutaFoto} alt="Foto de {nombreCompleto}" />
+        <h1>{nombreCompleto}</h1>
+        <p>{tuRol}</p>
+    </section>
+
+    <div class="container">
+        <section id="about-me">
+            <h2>Sobre Mí</h2>
+            <p>{sobreMiTexto}</p>
+        </section>
+
+        <section id="projects">
+            <h2>Mis Proyectos</h2>
+            <div class="project-card">
+                <h3>Nombre del Proyecto 1</h3>
+                <p>Descripción breve del proyecto. Tecnologías utilizadas: HTML, CSS, JavaScript.</p>
+                <a href="#" target="_blank">Ver Proyecto</a> (si está desplegado) |
+                <a href="#" target="_blank">Ver Código</a> (en GitHub, por ejemplo)
+            </div>
+            <div class="project-card">
+                <h3>Nombre del Proyecto 2</h3>
+                <p>Descripción breve del proyecto. Tecnologías utilizadas: Astro, Tailwind CSS.</p>
+                <a href="#" target="_blank">Ver Proyecto</a> |
+                <a href="#" target="_blank">Ver Código</a>
+            </div>
+            </section>
+
+        <section id="contact">
+            <h2>Contacto</h2>
+            <p>Si estás interesado en colaborar o tienes alguna pregunta, ¡no dudes en contactarme!</p>
+            <p>Email: <a href={`mailto:${emailContacto}`}>{emailContacto}</a></p>
+            <p>
+                LinkedIn: <a href={`https://linkedin.com/in/${linkedinUser}`} target="_blank">{linkedinUser}</a>
+            </p>
+            <p>
+                GitHub: <a href={`https://github.com/${githubUser}`} target="_blank">{githubUser}</a>
+            </p>
+        </section>
+    </div>
+
+    <footer>
+        <p>{nombreCompleto} &copy; {new Date().getFullYear()}</p>
+    </footer>
+</body>
 </html>
